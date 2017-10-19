@@ -77,6 +77,8 @@ class BigBlueButton
     public function setUrlBuilder()
     {
         $this->urlBuilder = new UrlBuilder($this->securitySalt, $this->bbbServerBaseUrl);
+        
+        return $this->urlBuilder;
     }
 
     /**
