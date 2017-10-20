@@ -447,7 +447,16 @@ class CreateMeetingParameters extends MetaParameters
 
             foreach ($this->presentations as $nameOrUrl => $content) {
                 if ($this->presentations[$nameOrUrl] === true) {
-                    $module->addChild('document')->addAttribute('url', urlencode($nameOrUrl));
+                    // $module->addChild('document')->addAttribute('url', urlencode($nameOrUrl));
+                    /**
+                    * Edit to upload slide from special url
+                    * Edit by: YaangVu
+                    * Reason: Unknow why urlencode($nameOrUrl) has not working
+                    * Edit at: 20h20 10/20/2017
+                    * Old version: urlencode($nameOrUrl)
+                    * New version: $nameOrUrl
+                    */
+                    $module->addChild('document')->addAttribute('url', $nameOrUrl);
                 } else {
                     $document = $module->addChild('document');
                     $document->addAttribute('name', $nameOrUrl);
